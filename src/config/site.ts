@@ -28,15 +28,19 @@ export const siteConfig: SiteConfig = {
     "Run operating systems in isolated QEMU virtual machines on Windows with ephemeral sessions that discard changes and return to a pristine base state.",
   version: "1.2.0",
   releaseDate: "October 2026",
-  installerName: "NOVA-Setup.exe",
+  installerName: "NOVA-Setup-x64.exe",
   installerSize: "65.5 MB",
   installerSha256: "fc35a2c48a2ea66815eb9ec075e871f287617c2106da80af1e9c99b8784c8f34",
-  downloadUrl: process.env.NEXT_PUBLIC_DOWNLOAD_URL || "/downloads/NOVA-Setup.exe",
-  githubUrl: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/nova-launcher/nova",
-  releasesUrl: process.env.NEXT_PUBLIC_RELEASES_URL || "https://github.com/nova-launcher/nova/releases",
+  downloadUrl:
+    process.env.NEXT_PUBLIC_DOWNLOAD_URL ||
+    "https://github.com/Notyourapple/OS-Suite/releases/download/v1.2.0/NOVA-Setup-x64.exe",
+  githubUrl: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/Notyourapple/OS-Suite",
+  releasesUrl:
+    process.env.NEXT_PUBLIC_RELEASES_URL ||
+    "https://github.com/Notyourapple/OS-Suite/releases",
   docsUrl: "/docs",
   platform: "Windows 10 / 11",
-  architecture: "x86-64 (64-bit)",
+  architecture: "Windows x64 (Intel & AMD 64-bit)",
   minWindowsBuild: "Windows 10 Version 1903 (Build 18362) or newer",
   engine: "QEMU x86_64",
   acceleration: "WHPX (Windows Hypervisor Platform)",

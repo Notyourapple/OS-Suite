@@ -27,7 +27,7 @@ export default function DownloadPage() {
     }
   };
 
-  const psCommand = `(Get-FileHash -Path .\\NOVA-Setup.exe -Algorithm SHA256).Hash -eq "${siteConfig.installerSha256.toUpperCase()}"`;
+  const psCommand = `(Get-FileHash -Path .\\${siteConfig.installerName} -Algorithm SHA256).Hash -eq "${siteConfig.installerSha256.toUpperCase()}"`;
 
   return (
     <div className="pt-28 pb-20 tech-grid min-h-screen">
@@ -53,10 +53,10 @@ export default function DownloadPage() {
             <div className="lg:col-span-7 space-y-6">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-mono text-xs font-bold">
-                  v{siteConfig.version} STABLE
+                  v{siteConfig.version} (Latest stable release)
                 </span>
                 <span className="px-3 py-1 rounded-lg bg-white/5 text-slate-300 border border-white/10 font-mono text-xs">
-                  {siteConfig.architecture}
+                  Windows x64
                 </span>
                 <span className="px-3 py-1 rounded-lg bg-white/5 text-slate-300 border border-white/10 font-mono text-xs">
                   {siteConfig.installerSize}
@@ -67,6 +67,9 @@ export default function DownloadPage() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
                   NOVA for Windows
                 </h2>
+                <div className="text-xs font-mono text-cyan-400 mt-1">
+                  Target: {siteConfig.architecture} • Artifact: {siteConfig.installerName}
+                </div>
                 <p className="text-sm text-slate-300 mt-2 leading-relaxed">
                   Includes the complete NOVA Desktop GUI, Tauri 2 supervision runtime, SQLite database engine, QMP communication layer, and profile manager.
                 </p>
@@ -80,7 +83,7 @@ export default function DownloadPage() {
                   className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500 bg-[length:200%_auto] hover:bg-right text-white font-semibold text-sm shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_40px_rgba(6,182,212,0.6)] transition-all"
                 >
                   <Download className="w-4 h-4 text-cyan-100" />
-                  <span>DOWNLOAD {siteConfig.installerName}</span>
+                  <span>DOWNLOAD NOVA ({siteConfig.installerName})</span>
                 </a>
 
                 <a
@@ -89,16 +92,16 @@ export default function DownloadPage() {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl glass-panel text-slate-300 hover:text-white hover:border-white/20 text-sm font-medium transition-all"
                 >
-                  <span>View GitHub Releases</span>
+                  <span>VIEW GITHUB RELEASES</span>
                   <ExternalLink className="w-3.5 h-3.5 text-slate-500" />
                 </a>
               </div>
 
-              {/* Fallback notification */}
+              {/* Direct GitHub Release Notification */}
               <div className="flex items-start gap-2.5 p-3 rounded-lg bg-white/[0.02] border border-white/5 text-xs text-slate-400">
                 <AlertCircle className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <span>
-                  If direct download is blocked by your browser, access mirrors via{" "}
+                  The official installer is distributed via GitHub Releases. You can also view release notes and mirror assets directly on{" "}
                   <a href={siteConfig.releasesUrl} target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">
                     GitHub Releases
                   </a>
@@ -132,7 +135,7 @@ export default function DownloadPage() {
                 <div className="space-y-1.5 pt-1">
                   <div className="text-slate-500 text-[11px]">PowerShell Hash Verification Command</div>
                   <div className="p-2.5 rounded bg-black/50 border border-white/10 text-cyan-300 break-all text-[11px] flex items-center justify-between gap-2">
-                    <span className="truncate font-mono">Get-FileHash NOVA-Setup.exe</span>
+                    <span className="truncate font-mono">Get-FileHash .\{siteConfig.installerName}</span>
                     <button
                       onClick={() => copyToClipboard(psCommand, false)}
                       className="p-1 text-slate-400 hover:text-cyan-400 shrink-0"
@@ -144,7 +147,7 @@ export default function DownloadPage() {
                 </div>
 
                 <div className="text-[10px] text-slate-500 pt-1 leading-normal">
-                  Verify the authenticity of your binary before execution in production environments.
+                  Verified Windows x64 binary ({siteConfig.installerSize}). Authentic build published directly to GitHub Releases.
                 </div>
               </div>
             </div>
@@ -172,7 +175,7 @@ export default function DownloadPage() {
               </div>
               <h4 className="text-sm font-semibold text-white">Run NOVA Setup</h4>
               <p className="text-xs text-slate-400 leading-relaxed">
-                Launch <code className="text-cyan-300">NOVA-Setup.exe</code>. The installer runs locally in your user profile without admin rights.
+                Launch <code className="text-cyan-300">{siteConfig.installerName}</code>. The installer runs locally in your user profile without admin rights.
               </p>
             </div>
 

@@ -46,7 +46,7 @@ export default function InstallationPage() {
                 <h3 className="text-lg font-bold text-white">Download NOVA for Windows</h3>
               </div>
               <p className="text-sm text-slate-300 pl-11 leading-relaxed">
-                Obtain the official installer <code className="text-cyan-300">NOVA-Setup.exe</code> from the download portal. Verify the SHA-256 hash if required by your organizational policy.
+                Obtain the official installer <code className="text-cyan-300">NOVA-Setup-x64.exe</code> from the download portal. Verify the SHA-256 hash if required by your organizational policy.
               </p>
               <div className="pl-11 pt-1">
                 <Link

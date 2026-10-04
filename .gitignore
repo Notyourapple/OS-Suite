@@ -23,7 +23,10 @@
 # misc
 .DS_Store
 *.pem
-/NOVA-Setup.exe
+
+# binary installers & downloads
+*.exe
+/public/downloads/
 
 # debug
 npm-debug.log*

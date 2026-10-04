@@ -147,7 +147,7 @@ export default function DocsPage() {
               </div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-white">2. Installation & Setup</h2>
               <p className="text-sm text-slate-300 leading-relaxed">
-                NOVA is packaged as a standard Windows installer (<code className="text-cyan-300">NOVA-Setup.exe</code>). The installer runs without administrative elevation and installs NOVA cleanly into the user&apos;s local application folder.
+                NOVA is packaged as a standard Windows installer (<code className="text-cyan-300">NOVA-Setup-x64.exe</code>). The installer runs without administrative elevation and installs NOVA cleanly into the user&apos;s local application folder.
               </p>
 
               <div className="p-4 rounded-xl bg-[#090d16] border border-white/10 font-mono text-xs text-slate-300 space-y-2">
@@ -156,7 +156,7 @@ export default function DocsPage() {
                   <button
                     onClick={() =>
                       copyCode(
-                        `Get-FileHash -Path .\\NOVA-Setup.exe -Algorithm SHA256`,
+                        `Get-FileHash -Path .\\NOVA-Setup-x64.exe -Algorithm SHA256`,
                         "copy-install"
                       )
                     }
@@ -165,7 +165,7 @@ export default function DocsPage() {
                     {copiedId === "copy-install" ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
                   </button>
                 </div>
-                <div className="text-cyan-300">Get-FileHash -Path .\NOVA-Setup.exe -Algorithm SHA256</div>
+                <div className="text-cyan-300">Get-FileHash -Path .\NOVA-Setup-x64.exe -Algorithm SHA256</div>
               </div>
             </section>
 
